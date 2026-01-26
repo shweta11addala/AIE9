@@ -45,20 +45,20 @@ You will be required to submit a link to your GitHub, as well as screenshots of 
 Please evaluate your system on the following questions:
 
 1. Explain the concept of object-oriented programming in simple terms to a complete beginner.
-    - Aspect Tested:
+    - Aspect Tested: Yes - https://docs.google.com/document/d/19nn50r-UxLMgrRxR-xIuxU7pr-lWkW4TL0vVFLlWoWo/edit?tab=t.0
 2. Read the following paragraph and provide a concise summary of the key points…
-    - Aspect Tested:
+    - Aspect Tested: Yes - https://docs.google.com/document/d/19nn50r-UxLMgrRxR-xIuxU7pr-lWkW4TL0vVFLlWoWo/edit?tab=t.0
 3. Write a short, imaginative story (100–150 words) about a robot finding friendship in an unexpected place.
-    - Aspect Tested:
+    - Aspect Tested: Yes - https://docs.google.com/document/d/19nn50r-UxLMgrRxR-xIuxU7pr-lWkW4TL0vVFLlWoWo/edit?tab=t.0
 4. If a store sells apples in packs of 4 and oranges in packs of 3, how many packs of each do I need to buy to get exactly 12 apples and 9 oranges?
-    - Aspect Tested:
+    - Aspect Tested: Yes - https://docs.google.com/document/d/19nn50r-UxLMgrRxR-xIuxU7pr-lWkW4TL0vVFLlWoWo/edit?tab=t.0
 5. Rewrite the following paragraph in a professional, formal tone…
-    - Aspect Tested:
+    - Aspect Tested: Yes - https://docs.google.com/document/d/19nn50r-UxLMgrRxR-xIuxU7pr-lWkW4TL0vVFLlWoWo/edit?tab=t.0
 
 #### ❓Question #1:
 
 Do the answers appear to be correct and useful?
-##### ✅ Answer:
+##### ✅ Answer: They are correct, useful
 
 ---
 
@@ -73,17 +73,17 @@ Now test your assistant with personal questions it should be able to help with. 
 - "What can I cook with [enter ingredients] in fridge."
 
 ##### Your Prompts and Results:
-1. Prompt:
-   - Result:
-2. Prompt:
-   - Result:
-3. Prompt:
-   - Result:
+1. Prompt: Help me think through the pros and cons of buying a house in Seattle
+   - Result: https://docs.google.com/document/d/19nn50r-UxLMgrRxR-xIuxU7pr-lWkW4TL0vVFLlWoWo/edit?tab=t.0#bookmark=id.6g4atm9y9gja
+2. Prompt: Help me plan a birthday surprise for my son
+   - Result: https://docs.google.com/document/d/19nn50r-UxLMgrRxR-xIuxU7pr-lWkW4TL0vVFLlWoWo/edit?tab=t.0#bookmark=id.40jhpfey1jtp
+3. Prompt: What can I cook with eggs and onion and bread
+   - Result: https://docs.google.com/document/d/19nn50r-UxLMgrRxR-xIuxU7pr-lWkW4TL0vVFLlWoWo/edit?tab=t.0#bookmark=id.v1kzm6dtnuyb
 
 #### ❓Question #2:
 
 Are the vibes of this assistant's answers aligned with your vibes? Why or why not?
-##### ✅ Answer:
+##### ✅ Answer: Not really very generic and does not align to my personal background
 
 ---
 
@@ -95,15 +95,15 @@ Now test your assistant with questions that would require capabilities beyond ba
 - "What time should I leave for the airport?"
 
 ##### Your Prompts and Results:
-1. Prompt:
-   - Result:
-2. Prompt:
-   - Result:
+1. Prompt: What does my schedule look like tomorrow?
+   - Result: https://docs.google.com/document/d/19nn50r-UxLMgrRxR-xIuxU7pr-lWkW4TL0vVFLlWoWo/edit?tab=t.0#bookmark=id.zd6j2f5alvrw
+2. Prompt: What time should I leave for the airport?
+   - Result:https://docs.google.com/document/d/19nn50r-UxLMgrRxR-xIuxU7pr-lWkW4TL0vVFLlWoWo/edit?tab=t.0#bookmark=id.4lvsb3elox4k
 
 #### ❓Question #3:
 
 What are some limitations of your application?
-##### ✅ Answer:
+##### ✅ Answer: Limited and no acces to the tools limits its effectiveness
 
 ---
 
