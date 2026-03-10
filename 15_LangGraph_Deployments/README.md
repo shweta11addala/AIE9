@@ -69,6 +69,23 @@ Have fun!
 What is the key architectural difference between the `simple_agent` and `agent_with_helpfulness` graphs? Specifically, explain how the helpfulness evaluation loop works and what mechanisms are in place to prevent it from running indefinitely.
 
 ##### Answer:
+1. simple_agent.py: Operates on a basic two-node cycle (agent and action). The graph terminates immediately once the LLM outputs a response that does not include any tool calls.
+
+2. agent_with_helpfulness.py: Adds a helpfulness node and a secondary evaluation cycle. Instead of ending when tool calling is complete, the graph routes the agent's final response to this evaluation node to verify its quality before allowing the execution to end.
+
+How the Helpfulness evaluation loop works:
+Routing: When the agent node finishes and does not request any tools, the route_to_action_or_helpfulness function directs the flow to the helpfulness_node instead of ending the graph.
+
+Evaluation: The helpfulness_node seperates the user's query and the agent's final_response. It feeds them into a secondary, llm (gpt-4.1-mini) which outputs a structured boolean (HelpfulnessResult) determining if the response is "extremely helpful".
+
+Decision & State Update: The node appends a marker to the state—either "HELPFULNESS:Y" (helpful) or "HELPFULNESS:N" (not helpful).
+
+Looping: The helpfulness_decision conditional edge reads this marker. If it evaluates to "Y", the graph routes to END. If "N", it routes back to the agent node, forcing the model to try answering the query again.
+
+Avoid Infinite loops:
+1. helpfulness_node checks the length of the message history (if len(state["messages"]) > 10:)
+2. If the mesasge limit is exceeded, the node skips the LLM evaluation and outputs HELPFULNESS:END marker
+3. helpfulness_decision edge checks for exact stringm if exists it will end the graph. 
 
 
 
@@ -76,13 +93,23 @@ What is the key architectural difference between the `simple_agent` and `agent_w
 What is the role of `langgraph.json` in the LangGraph Deployments? Describe each of its key fields and how the platform uses this file to discover and serve your graphs.
 
 ##### Answer:
+1. version: Specifies the schema version of the configuration file, such as 2. dependencies: Defines the path to the project's dependency specifications, such as ["."] to indicate the root directory containing the pyproject.toml file.
 
+3. env: Points to the environment variable file, such as .env, ensuring the platform loads necessary API Keys
+
+4. python_version: specific Python runtime required for the deployment
+5. graphs: A mapping that registers the graph. Maps a "key" to Python module path and variable name telling the runtime exactly where to import the compiled graph.
+6. assistants: Defines config metadata of the graph. provides a name and description to be surfaced in the UI or API.
+
+How platform use this file to discover abd server the graph:
+When the application is deployed or run, platform reads langgraph.json to bootstrap the service. It installs the dependencies, config and evironment callout in the file. And imports the graphs. Once imported, these graphs are converted into API endpoints. 
 
 
 #### Activity #1:
 Create your own agent graph! Build a new graph in `app/graphs/` with a custom evaluation node (e.g., a vibe checker, a fact verifier, a summarizer — get creative!). Register it in `langgraph.json`, serve it with `uv run langgraph dev`
 
 ##### Answer:
+
 
 
 
