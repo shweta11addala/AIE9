@@ -81,9 +81,12 @@ Follow these steps to prepare and submit your homework assignment:
 
 What is the difference between serverless and dedicated endpoints?
 
-#### ✅ Answer:
+#### ✅ Answer: 
 
-_(insert your answer here)_
+Serverless: They can be used directly without requiring any infrastructure setup or provisioning. We can simply access them using a standard model identifier, such as accounts/fireworks/models/gpt-oss-20b
+
+Dedicated (On Demand) They provide guarentted capacity ensuring application availability during high traffic and scales down when low traffic. we need to watch for cost closly as they incour projected hourly costs. have direct control over the compute resources, allowing you to select predefined deployment shapes (such as allocating 4 NVIDIA B200 GPUs) or manually configuring the exact accelerator type and count.
+
 
 ### ❓ Question #2:
 
@@ -91,7 +94,14 @@ Why is it important to consider token throughput and latency when choosing an LL
 
 #### ✅ Answer:
 
-_(insert your answer here)_
+This is the crutial aspected that dictate user experience
+Latency: Is responsiveness of the application. Users expect <200ms response time. There are 2 parts to this:
+1. Time to First Token: Inital delay before model generates the first piece of text. If this value is high, users are left staring at the empty screen. 
+2. Average time between generating each subsequent texts. If this value is high the sluggish, stuttering output is frustrating to read
+
+Throughput: Total volume of tokens system can process per second. This measures how many concurrent users the system can handle. If this value is low, the requests will queueup traffic jam and increasing latency and timeouts. 
+
+
 
 ## Activity 1: RAGAS Evaluation with Cost Analysis
 
