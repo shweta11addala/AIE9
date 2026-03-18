@@ -13,4 +13,5 @@ dependencies = [
     "langchain-openai>=1.1.10",
     "dotenv>=0.9.9",
     "ipykernel>=7.2.0",
+    "httpx>=0.28.1",
 ]

@@ -139,7 +139,17 @@ Why is OAuth important for MCP servers, and what security considerations should 
 
 #### ✅ Answer:
 
-_(insert your answer here)_
+OAuth is critical for Model Context Protocol (MCP) servers because it establishes a secure, standardized layer of authorization between an AI client and the tools/data the server exposes. Without authentication, any AI client with network access could execute actions on the server—which in the context of our cat shop could mean unauthorized users viewing someone else's cart or executing a checkout. OAuth ensures that the AI is acting on behalf of a verified user and only has access to the resources permitted by that user's scopes.
+
+Key Security Considerations:
+
+1. Only expose the exact tools the AI needs to complete its specific tasks. Do not grant broad database access if the agent only needs to list_products.
+
+2. AI clients generate inputs dynamically. You must strictly sanitize and validate all arguments passed to your MCP tools to prevent prompt injection or malicious payloads from executing harmful code on your backend.
+
+3. Be  cautious with tools that mutate state (like checkout or remove_from_cart). These might warrent human in the loop flows
+
+4. Always use encrypted transport (like HTTPS/WSS over ngrok or TLS) to prevent token interception.
 
 ### ❓ Question #2:
 
@@ -147,7 +157,19 @@ What is the Agent-to-Agent (A2A) protocol, and how does it differ from MCP in te
 
 #### ✅ Answer:
 
-_(insert your answer here)_
+The Agent-to-Agent (A2A) protocol is an interoperability standard designed to allow different AI agents to communicate with each another, regardless of their underlying models or developers.
+
+How it differs from MCP:
+
+Purpose: MCP is focused on connecting an AI model to its environment (giving it tools, file access, and data context). A2A is focused on connecting an AI model to other AI models (allowing them to converse and collaborate).
+
+Architecture: MCP relies on a strict Client-Server architecture (an AI client requests data/actions from an MCP server). A2A relies on a more Peer-to-Peer architecture, where agents exchange standardized messages
+
+When to choose which:
+
+Choose MCP when we need to give a single AI agent access to an external system, API, or database 
+
+Choose A2A when we have a complex workflow that requires specialized, independent agents working together (e.g., a "Research Agent" gathering data and using A2A to hand that data off to a "Writer Agent" to format a report). 
 
 ## Activity 1: Extend the MCP Server
 

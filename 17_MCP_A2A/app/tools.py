@@ -15,6 +15,24 @@ async def _get_username() -> str:
     return username
 
 
+  
+@mcp.tool()
+async def search_products(query: str) -> list[dict]:
+    """Search the cat shop catalog by keyword in product name or description."""
+    db = await oauth_provider._get_db()
+    cursor = await db.execute(
+        "SELECT id, name, description, price, category FROM products WHERE name LIKE ? OR description LIKE ?",
+        (f"%{query}%", f"%{query}%"),
+    )
+    rows = await cursor.fetchall()
+    if not rows:
+        return [{"message": f"No products found matching '{query}'"}]
+    return [
+        {"id": r[0], "name": r[1], "description": r[2], "price": r[3], "category": r[4]}
+        for r in rows
+    ]
+
+
 @mcp.tool()
 async def list_products(category: str | None = None) -> list[dict]:
     """Browse the cat shop catalog. Optionally filter by category (toys, beds, food, furniture)."""
@@ -116,7 +134,7 @@ async def remove_from_cart(product_id: int) -> dict:
     if cursor.rowcount == 0:
         return {"error": "Item not in cart"}
     return {"success": True, "message": "Item removed from cart"}
-
+  
 
 @mcp.tool()
 async def checkout() -> dict:
