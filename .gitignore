@@ -7,3 +7,4 @@ __pycache__/
 .venv
 uv.lock
 workspace
+18_Production_RAG_and_Guardrails/cache/

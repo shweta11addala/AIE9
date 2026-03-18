@@ -1,0 +1,49 @@
+{
+  "version": 1,
+  "validators": {
+    "tryolabs/restricttotopic": {
+      "import_path": "tryolabs_grhub_restricttotopic",
+      "exports": [
+        "RestrictToTopic"
+      ],
+      "installed_at": "2026-03-18T02:08:16.233256+00:00",
+      "package_name": "tryolabs-grhub-restricttotopic"
+    },
+    "guardrails/detect_jailbreak": {
+      "import_path": "guardrails_grhub_detect_jailbreak",
+      "exports": [
+        "DetectJailbreak"
+      ],
+      "installed_at": "2026-03-18T02:10:00.784463+00:00",
+      "package_name": "guardrails-grhub-detect-jailbreak"
+    },
+    "guardrails/competitor_check": {
+      "import_path": "guardrails_grhub_competitor_check",
+      "exports": [
+        "CompetitorCheck"
+      ],
+      "installed_at": "2026-03-18T02:09:08.880262+00:00",
+      "package_name": "guardrails-grhub-competitor-check"
+    },
+    "arize-ai/llm_rag_evaluator": {
+      "import_path": "arize_ai_grhub_llm_rag_evaluator",
+      "exports": [
+        "LlmRagEvaluator",
+        "ArizeRagEvalPromptBase",
+        "ContextRelevancyPrompt",
+        "HallucinationPrompt",
+        "QACorrectnessPrompt"
+      ],
+      "installed_at": "2026-03-18T02:09:15.248871+00:00",
+      "package_name": "arize-ai-grhub-llm-rag-evaluator"
+    },
+    "guardrails/profanity_free": {
+      "import_path": "guardrails_grhub_profanity_free",
+      "exports": [
+        "ProfanityFree"
+      ],
+      "installed_at": "2026-03-18T02:09:45.500369+00:00",
+      "package_name": "guardrails-grhub-profanity-free"
+    }
+  }
+}
